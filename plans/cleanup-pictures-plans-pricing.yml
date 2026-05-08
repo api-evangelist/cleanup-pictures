@@ -5,7 +5,7 @@ provider: Cleanup.pictures
 providerId: cleanup-pictures
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: partial
 tags:
 - AI
 - Image Editing
@@ -13,29 +13,61 @@ tags:
 - Inpainting
 - Visual
 - Plans
-description: Placeholder plans/pricing artifact for Cleanup.pictures. Replace with real published pricing once
-  the pipeline researches the provider's plans page.
-notes: Initial scaffold — plans/pricing have not yet been reconciled.
+description: >-
+  Cleanup.pictures API is delivered through the ClipDrop platform (Jasper.ai). Pricing is
+  credit-based: 1 successful API call = 1 credit. New developers receive 100 free credits.
+  Per-credit pricing depends on chosen ClipDrop credit pack; contact Jasper.ai for higher
+  volumes.
+notes: Specific per-credit USD price varies by ClipDrop pack and is set on the ClipDrop pricing page; verify current rates there.
 sources:
-- https://cleanup.pictures/
+- https://clipdrop.co/apis/docs/cleanup
+- https://clipdrop.co/apis/pricing
 plans:
-- id: cleanup-pictures-default
-  name: To Be Reconciled
-  type: enterprise
-  description: Initial scaffold; replace with provider plan tiers once pricing is reconciled.
+- id: cleanup-pictures-developer
+  name: Developer (Free Credits)
+  type: free
+  description: New developers receive 100 free credits.
   entries:
-  - label: API Access
-    name: api_access
+  - label: Free Credits
+    name: free_credits
     type: flat
-    metric: varies
+    metric: credit
+    limit: 100
+    timeFrame: trial
+    geo: global
+    unit: 1
+    price: 0 USD
+    userMultiplied: false
+- id: cleanup-pictures-payg
+  name: Pay-as-you-go (Credits)
+  type: usage
+  description: Credits drawn down per call (1 credit per successful cleanup).
+  entries:
+  - label: Per Call
+    name: per_call
+    type: per_unit
+    metric: credit
     limit: -1
     timeFrame: usage
     geo: global
     unit: 1
-    price: see https://cleanup.pictures/
+    price: 1 credit per successful call (USD pack rate per ClipDrop pricing)
     userMultiplied: false
-  elements:
-  - name: Pending Reconciliation
+- id: cleanup-pictures-enterprise
+  name: Enterprise
+  type: enterprise
+  description: Higher credit volumes and custom limits available via Jasper.ai sales.
+  entries:
+  - label: Enterprise Contract
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: annual
+    geo: global
+    unit: 1
+    price: contact Jasper.ai sales
+    userMultiplied: false
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

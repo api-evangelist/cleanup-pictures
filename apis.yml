@@ -3,7 +3,9 @@ url: https://raw.githubusercontent.com/api-evangelist/cleanup-pictures/refs/head
 name: Cleanup.pictures
 x-type: company
 description: >-
-  Cleanup.pictures (by ClipDrop / Stability AI ecosystem) provides AI-powered photo cleanup, object and watermark removal via inpainting.
+  Cleanup.pictures provides AI-powered photo cleanup, object and watermark removal via
+  inpainting. The public API is hosted on the ClipDrop platform (now Jasper.ai) at
+  https://clipdrop-api.co/cleanup/v1, billed at 1 credit per successful call.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - AI
@@ -14,10 +16,33 @@ tags:
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
-apis: []
+apis:
+  - aid: cleanup-pictures:cleanup
+    name: Cleanup.pictures Inpainting API
+    description: >-
+      REST API for object/watermark/blemish removal via mask-based inpainting. POST
+      multipart/form-data with image_file, mask_file, and optional mode (fast/quality) to
+      https://clipdrop-api.co/cleanup/v1. Default quota is 60 requests/minute. 1 successful
+      call = 1 credit. Hosted on ClipDrop (Jasper.ai).
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://clipdrop.co/apis/docs/cleanup
+    baseURL: https://clipdrop-api.co/cleanup/v1
+    tags:
+      - Inpainting
+      - Object Removal
+      - Image Editing
+    properties:
+      - type: Documentation
+        url: https://clipdrop.co/apis/docs/cleanup
+      - type: SignUp
+        url: https://clipdrop.co/apis
+      - type: Pricing
+        url: https://clipdrop.co/apis/pricing
 common:
   - type: Website
     url: https://cleanup.pictures/
+  - type: Documentation
+    url: https://clipdrop.co/apis/docs/cleanup
   - type: Plans
     url: plans/cleanup-pictures-plans-pricing.yml
   - type: RateLimits

@@ -5,7 +5,7 @@ provider: Cleanup.pictures
 providerId: cleanup-pictures
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - AI
 - Image Editing
@@ -15,21 +15,40 @@ tags:
 - Rate Limiting
 - Quotas
 - Throttling
-description: Placeholder rate-limit artifact for Cleanup.pictures. Replace with real limits once researched.
-notes: Initial scaffold — limits have not yet been reconciled.
+description: >-
+  ClipDrop Cleanup API enforces a default 60 requests/minute quota with higher limits
+  available on request. Image inputs are limited to JPG/PNG up to 16 megapixels and 30 MB.
+  x-remaining-credits and x-credits-consumed headers track credit balance.
+notes: Reconciled directly from ClipDrop Cleanup API docs.
 sources:
-- https://cleanup.pictures/
+- https://clipdrop.co/apis/docs/cleanup
 responseCodes:
   throttled: 429
 limits:
-- name: Default
+- name: Requests Per Minute
   scope: account
-  metric: varies
-  limit: see provider documentation
-  notes: Pending reconciliation.
+  metric: requests_per_minute
+  limit: 60
+  notes: Default quota; higher limits available upon request.
+- name: Image File Size
+  scope: request
+  metric: megabytes
+  limit: 30
+- name: Image Megapixels
+  scope: request
+  metric: megapixels
+  limit: 16
+- name: Mask File Size
+  scope: request
+  metric: megabytes
+  limit: 30
 policies:
 - name: Backoff Strategy
   description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+- name: Mask Sizing
+  description: Expand the detected object mask by ~15% for better cleanup results.
+- name: Credit Header Monitoring
+  description: Watch x-remaining-credits and x-credits-consumed headers to budget calls.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
