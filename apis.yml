@@ -1,0 +1,29 @@
+aid: cleanup-pictures
+url: https://raw.githubusercontent.com/api-evangelist/cleanup-pictures/refs/heads/main/apis.yml
+name: Cleanup.pictures
+x-type: company
+description: >-
+  Cleanup.pictures (by ClipDrop / Stability AI ecosystem) provides AI-powered photo cleanup, object and watermark removal via inpainting.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - AI
+  - Image Editing
+  - Object Removal
+  - Inpainting
+  - Visual
+created: '2026-05-08'
+modified: '2026-05-08'
+specificationVersion: '0.19'
+apis: []
+common:
+  - type: Website
+    url: https://cleanup.pictures/
+  - type: Plans
+    url: plans/cleanup-pictures-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/cleanup-pictures-rate-limits.yml
+  - type: FinOps
+    url: finops/cleanup-pictures-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
