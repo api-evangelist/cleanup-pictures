@@ -49,6 +49,29 @@ common:
     url: rate-limits/cleanup-pictures-rate-limits.yml
   - type: FinOps
     url: finops/cleanup-pictures-finops.yml
+  - type: Integrations
+    url: https://cleanup.pictures/integrations
+integrations:
+  - name: Cleanup example
+  - name: Photographer usecase before
+  - name: Photographer usecase after
+  - name: Creative agency usecase before
+  - name: Creative agency usecase after
+  - name: Real estate usecase before
+  - name: Real estate usecase after
+  - name: Ecommerce usecase before
+  - name: Ecommerce usecase after
+  - name: Watermark Usecase
+  - name: API Usecase
+  - name: Dawn Veltri
+  - name: AGP
+  - name: Hyundai
+  - name: Treze
+  - name: Wemuda
+  - name: ZigZag
+  - name: manage subscription
+  - name: Cleanup.pictures
+  - name: Fix
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
