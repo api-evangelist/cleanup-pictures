@@ -1,7 +1,7 @@
 aid: cleanup-pictures
 url: https://raw.githubusercontent.com/api-evangelist/cleanup-pictures/refs/heads/main/apis.yml
 name: Cleanup.pictures
-x-type: company
+kind: company
 description: >-
   Cleanup.pictures provides AI-powered photo cleanup, object and watermark removal via
   inpainting. The public API is hosted on the ClipDrop platform (now Jasper.ai) at
