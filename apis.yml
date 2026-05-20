@@ -39,6 +39,8 @@ apis:
       - type: Pricing
         url: https://clipdrop.co/apis/pricing
 common:
+  - type: GitHubOrganization
+    url: https://github.com/initml
   - type: Website
     url: https://cleanup.pictures/
   - type: Documentation
