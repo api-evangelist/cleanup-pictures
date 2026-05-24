@@ -53,6 +53,8 @@ common:
     url: finops/cleanup-pictures-finops.yml
   - type: Integrations
     url: https://cleanup.pictures/integrations
+  - type: LLMsTxt
+    url: https://cleanup.pictures/llms.txt
 integrations:
   - name: Cleanup example
   - name: Photographer usecase before
