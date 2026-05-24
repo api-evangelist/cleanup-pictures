@@ -1,0 +1,87 @@
+openapi: 3.1.0
+info:
+  title: Cleanup.pictures API (ClipDrop)
+  description: |
+    REST API for AI-powered photo cleanup, object/watermark/blemish removal via
+    mask-based inpainting. Hosted on the ClipDrop platform (Jasper.ai).
+    Default quota 60 requests/minute. 1 successful call = 1 credit.
+  version: "1.0.0"
+  contact:
+    name: ClipDrop Support
+    email: contact@clipdrop.co
+    url: https://clipdrop.co/apis/docs/cleanup
+servers:
+  - url: https://clipdrop-api.co
+    description: ClipDrop production API
+security:
+  - ApiKeyAuth: []
+paths:
+  /cleanup/v1:
+    post:
+      summary: Cleanup an image
+      description: |
+        Remove objects, watermarks or blemishes from an image using a mask.
+        Submit the source image and a black/white PNG mask of the same resolution
+        marking the areas to inpaint. Returns the cleaned image as image/png.
+      operationId: cleanupImage
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - image_file
+                - mask_file
+              properties:
+                image_file:
+                  type: string
+                  format: binary
+                  description: Source image (JPG or PNG, max 16 megapixels, max 30 MB)
+                mask_file:
+                  type: string
+                  format: binary
+                  description: PNG mask (same resolution as image_file, max 30 MB). White pixels mark regions to remove.
+                mode:
+                  type: string
+                  enum: [fast, quality]
+                  default: fast
+                  description: Processing mode. "quality" produces better results at higher latency.
+      responses:
+        '200':
+          description: Cleaned image returned as PNG
+          headers:
+            x-remaining-credits:
+              schema:
+                type: integer
+              description: Credits remaining on the account after this call
+            x-credits-consumed:
+              schema:
+                type: integer
+              description: Credits consumed by this call
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: Malformed or incomplete request
+        '401':
+          description: Missing API key
+        '402':
+          description: No remaining credits
+        '403':
+          description: Invalid or revoked API key
+        '422':
+          description: Unacceptable input image
+        '429':
+          description: Rate limit exceeded
+        '500':
+          description: Server error
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: ClipDrop API key. Obtain via contact@clipdrop.co.
