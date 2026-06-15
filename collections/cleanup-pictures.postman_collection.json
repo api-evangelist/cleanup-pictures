@@ -1,0 +1,683 @@
+{
+  "item": [
+    {
+      "id": "ca2eeda8-a08b-4a09-a42d-45e5775283dc",
+      "name": "Cleanup an image",
+      "request": {
+        "name": "Cleanup an image",
+        "description": {
+          "content": "Remove objects, watermarks or blemishes from an image using a mask.\nSubmit the source image and a black/white PNG mask of the same resolution\nmarking the areas to inpaint. Returns the cleaned image as image/png.\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "cleanup",
+            "v1"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "image/png"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image_file",
+              "type": "file",
+              "description": "(Required) Source image (JPG or PNG, max 16 megapixels, max 30 MB)"
+            },
+            {
+              "key": "mask_file",
+              "type": "file",
+              "description": "(Required) PNG mask (same resolution as image_file, max 30 MB). White pixels mark regions to remove."
+            },
+            {
+              "key": "mode",
+              "value": "fast",
+              "type": "text",
+              "description": "Processing mode. \"quality\" produces better results at higher latency. (This can only be one of fast,quality)"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "ecd2dae5-bb78-4ca3-a01b-1c49c771333a",
+          "name": "Cleaned image returned as PNG",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "cleanup",
+                "v1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "x-api-key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "image/png"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Source image (JPG or PNG, max 16 megapixels, max 30 MB)",
+                    "type": "text/plain"
+                  },
+                  "key": "image_file",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "(Required) PNG mask (same resolution as image_file, max 30 MB). White pixels mark regions to remove.",
+                    "type": "text/plain"
+                  },
+                  "key": "mask_file",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Processing mode. \"quality\" produces better results at higher latency. (This can only be one of fast,quality)",
+                    "type": "text/plain"
+                  },
+                  "key": "mode",
+                  "value": "fast",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "disabled": false,
+              "description": "Credits remaining on the account after this call",
+              "key": "x-remaining-credits",
+              "value": "3645"
+            },
+            {
+              "disabled": false,
+              "description": "Credits consumed by this call",
+              "key": "x-credits-consumed",
+              "value": "3645"
+            },
+            {
+              "key": "Content-Type",
+              "value": "image/png"
+            }
+          ],
+          "body": "string",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "2e7bdb4c-7136-44b8-abff-831ed410b40d",
+          "name": "Malformed or incomplete request",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "cleanup",
+                "v1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "x-api-key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Source image (JPG or PNG, max 16 megapixels, max 30 MB)",
+                    "type": "text/plain"
+                  },
+                  "key": "image_file",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "(Required) PNG mask (same resolution as image_file, max 30 MB). White pixels mark regions to remove.",
+                    "type": "text/plain"
+                  },
+                  "key": "mask_file",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Processing mode. \"quality\" produces better results at higher latency. (This can only be one of fast,quality)",
+                    "type": "text/plain"
+                  },
+                  "key": "mode",
+                  "value": "fast",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "b6c2acbd-e344-4ca0-98f3-c67cf81510fa",
+          "name": "Missing API key",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "cleanup",
+                "v1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "x-api-key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Source image (JPG or PNG, max 16 megapixels, max 30 MB)",
+                    "type": "text/plain"
+                  },
+                  "key": "image_file",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "(Required) PNG mask (same resolution as image_file, max 30 MB). White pixels mark regions to remove.",
+                    "type": "text/plain"
+                  },
+                  "key": "mask_file",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Processing mode. \"quality\" produces better results at higher latency. (This can only be one of fast,quality)",
+                    "type": "text/plain"
+                  },
+                  "key": "mode",
+                  "value": "fast",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "80c253e2-c6fc-4d29-ab06-c821efc34feb",
+          "name": "No remaining credits",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "cleanup",
+                "v1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "x-api-key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Source image (JPG or PNG, max 16 megapixels, max 30 MB)",
+                    "type": "text/plain"
+                  },
+                  "key": "image_file",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "(Required) PNG mask (same resolution as image_file, max 30 MB). White pixels mark regions to remove.",
+                    "type": "text/plain"
+                  },
+                  "key": "mask_file",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Processing mode. \"quality\" produces better results at higher latency. (This can only be one of fast,quality)",
+                    "type": "text/plain"
+                  },
+                  "key": "mode",
+                  "value": "fast",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "Payment Required",
+          "code": 402,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "1d68313f-cf9b-420c-a08a-5c67ee65ea1b",
+          "name": "Invalid or revoked API key",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "cleanup",
+                "v1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "x-api-key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Source image (JPG or PNG, max 16 megapixels, max 30 MB)",
+                    "type": "text/plain"
+                  },
+                  "key": "image_file",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "(Required) PNG mask (same resolution as image_file, max 30 MB). White pixels mark regions to remove.",
+                    "type": "text/plain"
+                  },
+                  "key": "mask_file",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Processing mode. \"quality\" produces better results at higher latency. (This can only be one of fast,quality)",
+                    "type": "text/plain"
+                  },
+                  "key": "mode",
+                  "value": "fast",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "Forbidden",
+          "code": 403,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "58898b7b-ecb4-4c9f-9170-9f27b3562e33",
+          "name": "Unacceptable input image",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "cleanup",
+                "v1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "x-api-key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Source image (JPG or PNG, max 16 megapixels, max 30 MB)",
+                    "type": "text/plain"
+                  },
+                  "key": "image_file",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "(Required) PNG mask (same resolution as image_file, max 30 MB). White pixels mark regions to remove.",
+                    "type": "text/plain"
+                  },
+                  "key": "mask_file",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Processing mode. \"quality\" produces better results at higher latency. (This can only be one of fast,quality)",
+                    "type": "text/plain"
+                  },
+                  "key": "mode",
+                  "value": "fast",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "08a03d17-5d0b-420f-badf-2ae35f3e6d32",
+          "name": "Rate limit exceeded",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "cleanup",
+                "v1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "x-api-key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Source image (JPG or PNG, max 16 megapixels, max 30 MB)",
+                    "type": "text/plain"
+                  },
+                  "key": "image_file",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "(Required) PNG mask (same resolution as image_file, max 30 MB). White pixels mark regions to remove.",
+                    "type": "text/plain"
+                  },
+                  "key": "mask_file",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Processing mode. \"quality\" produces better results at higher latency. (This can only be one of fast,quality)",
+                    "type": "text/plain"
+                  },
+                  "key": "mode",
+                  "value": "fast",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "Too Many Requests",
+          "code": 429,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "b0a9585e-822f-4fc5-9898-a82d21b05df0",
+          "name": "Server error",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "cleanup",
+                "v1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "x-api-key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Source image (JPG or PNG, max 16 megapixels, max 30 MB)",
+                    "type": "text/plain"
+                  },
+                  "key": "image_file",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "(Required) PNG mask (same resolution as image_file, max 30 MB). White pixels mark regions to remove.",
+                    "type": "text/plain"
+                  },
+                  "key": "mask_file",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Processing mode. \"quality\" produces better results at higher latency. (This can only be one of fast,quality)",
+                    "type": "text/plain"
+                  },
+                  "key": "mode",
+                  "value": "fast",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "Internal Server Error",
+          "code": 500,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://clipdrop-api.co",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "90869d42-6f63-438f-9769-fa5a85a21164",
+    "name": "Cleanup.pictures API (ClipDrop)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for AI-powered photo cleanup, object/watermark/blemish removal via\nmask-based inpainting. Hosted on the ClipDrop platform (Jasper.ai).\nDefault quota 60 requests/minute. 1 successful call = 1 credit.\n\n\nContact Support:\n Name: ClipDrop Support\n Email: contact@clipdrop.co",
+      "type": "text/plain"
+    }
+  }
+}

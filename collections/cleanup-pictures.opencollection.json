@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cleanup.pictures API (ClipDrop)",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cleanup an image",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://clipdrop-api.co/cleanup/v1",
+        "body": {
+          "type": "multipart-form",
+          "data": [
+            {
+              "name": "image_file",
+              "type": "text",
+              "value": ""
+            },
+            {
+              "name": "mask_file",
+              "type": "text",
+              "value": ""
+            },
+            {
+              "name": "mode",
+              "type": "text",
+              "value": ""
+            }
+          ]
+        }
+      },
+      "docs": "Remove objects, watermarks or blemishes from an image using a mask.\nSubmit the source image and a black/white PNG mask of the same resolution\nmarking the areas to inpaint. Returns the cleaned image as image/png.\n"
+    }
+  ],
+  "bundled": true
+}
