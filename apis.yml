@@ -6,7 +6,7 @@ description: >-
   Cleanup.pictures provides AI-powered photo cleanup, object and watermark removal via
   inpainting. The public API is hosted on the ClipDrop platform (now Jasper.ai) at
   https://clipdrop-api.co/cleanup/v1, billed at 1 credit per successful call.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - AI
   - Image Editing
@@ -24,7 +24,7 @@ apis:
       multipart/form-data with image_file, mask_file, and optional mode (fast/quality) to
       https://clipdrop-api.co/cleanup/v1. Default quota is 60 requests/minute. 1 successful
       call = 1 credit. Hosted on ClipDrop (Jasper.ai).
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://clipdrop.co/apis/docs/cleanup
     baseURL: https://clipdrop-api.co/cleanup/v1
     tags:
