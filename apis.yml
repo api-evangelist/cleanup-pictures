@@ -34,7 +34,7 @@ apis:
     properties:
       - type: Documentation
         url: https://clipdrop.co/apis/docs/cleanup
-      - type: SignUp
+      - type: Signup
         url: https://clipdrop.co/apis
       - type: Pricing
         url: https://clipdrop.co/apis/pricing
@@ -53,7 +53,7 @@ common:
     url: finops/cleanup-pictures-finops.yml
   - type: Integrations
     url: https://cleanup.pictures/integrations
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://cleanup.pictures/llms.txt
 integrations:
   - name: Cleanup example
