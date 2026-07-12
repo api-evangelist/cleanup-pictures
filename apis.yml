@@ -39,6 +39,10 @@ apis:
       - type: Pricing
         url: https://clipdrop.co/apis/pricing
 common:
+  - type: DomainSecurity
+    url: security/cleanup-pictures-domain-security.yml
+  - type: Authentication
+    url: authentication/cleanup-pictures-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/initml
   - type: Website
