@@ -39,6 +39,8 @@ apis:
       - type: Pricing
         url: https://clipdrop.co/apis/pricing
 common:
+  - type: AgenticAccess
+    url: agentic-access/cleanup-pictures-agentic-access.yml
   - type: DomainSecurity
     url: security/cleanup-pictures-domain-security.yml
   - type: Authentication
