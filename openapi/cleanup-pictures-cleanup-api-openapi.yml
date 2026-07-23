@@ -1,28 +1,36 @@
 openapi: 3.1.0
 info:
-  title: Cleanup.pictures API (ClipDrop)
-  description: |
-    REST API for AI-powered photo cleanup, object/watermark/blemish removal via
+  title: .pictures API (ClipDrop) Cleanup API
+  description: 'REST API for AI-powered photo cleanup, object/watermark/blemish removal via
+
     mask-based inpainting. Hosted on the ClipDrop platform (Jasper.ai).
+
     Default quota 60 requests/minute. 1 successful call = 1 credit.
-  version: "1.0.0"
+
+    '
+  version: 1.0.0
   contact:
     name: ClipDrop Support
     email: contact@clipdrop.co
     url: https://clipdrop.co/apis/docs/cleanup
 servers:
-  - url: https://clipdrop-api.co
-    description: ClipDrop production API
+- url: https://clipdrop-api.co
+  description: ClipDrop production API
 security:
-  - ApiKeyAuth: []
+- ApiKeyAuth: []
+tags:
+- name: Cleanup
 paths:
   /cleanup/v1:
     post:
       summary: Cleanup an image
-      description: |
-        Remove objects, watermarks or blemishes from an image using a mask.
+      description: 'Remove objects, watermarks or blemishes from an image using a mask.
+
         Submit the source image and a black/white PNG mask of the same resolution
+
         marking the areas to inpaint. Returns the cleaned image as image/png.
+
+        '
       operationId: cleanupImage
       requestBody:
         required: true
@@ -31,8 +39,8 @@ paths:
             schema:
               type: object
               required:
-                - image_file
-                - mask_file
+              - image_file
+              - mask_file
               properties:
                 image_file:
                   type: string
@@ -44,7 +52,9 @@ paths:
                   description: PNG mask (same resolution as image_file, max 30 MB). White pixels mark regions to remove.
                 mode:
                   type: string
-                  enum: [fast, quality]
+                  enum:
+                  - fast
+                  - quality
                   default: fast
                   description: Processing mode. "quality" produces better results at higher latency.
       responses:
@@ -78,6 +88,8 @@ paths:
           description: Rate limit exceeded
         '500':
           description: Server error
+      tags:
+      - Cleanup
 components:
   securitySchemes:
     ApiKeyAuth:
