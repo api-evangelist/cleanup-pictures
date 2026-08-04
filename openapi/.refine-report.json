@@ -1,0 +1,14 @@
+{
+  "provider": "cleanup-pictures",
+  "sources": [
+    "cleanup-pictures-cleanup-api-openapi.yml"
+  ],
+  "outputs": [
+    "cleanup-pictures-cleanup-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
