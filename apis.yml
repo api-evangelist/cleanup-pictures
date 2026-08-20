@@ -21,6 +21,12 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cleanup-pictures.png
 tags:
+  - Artificial Intelligence
+  - Image Editing
+  - Object Removal
+  - Inpainting
+  - Visual
+tags_raw:
   - AI
   - Image Editing
   - Object Removal
