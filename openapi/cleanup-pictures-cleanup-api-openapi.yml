@@ -1,13 +1,11 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: .pictures API (ClipDrop) Cleanup API
   description: 'REST API for AI-powered photo cleanup, object/watermark/blemish removal via
 
     mask-based inpainting. Hosted on the ClipDrop platform (Jasper.ai).
 
-    Default quota 60 requests/minute. 1 successful call = 1 credit.
-
-    '
+    Default quota 60 requests/minute. 1 successful call = 1 credit.'
   version: 1.0.0
   contact:
     name: ClipDrop Support
@@ -28,9 +26,7 @@ paths:
 
         Submit the source image and a black/white PNG mask of the same resolution
 
-        marking the areas to inpaint. Returns the cleaned image as image/png.
-
-        '
+        marking the areas to inpaint. Returns the cleaned image as image/png.'
       operationId: cleanupImage
       requestBody:
         required: true

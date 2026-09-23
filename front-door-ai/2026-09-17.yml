@@ -1,0 +1,30 @@
+# Front Door AI Index — cleanup-pictures — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: cleanup-pictures
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: cleanup.pictures
+  final_host: cleanup.pictures
+  ownership: own
+  owner: cleanup-pictures
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 5
+  host_score: 5
+  density: 4.26
+  words: 1173
+  tiers:
+    agentic: 0
+    core: 5
+    model: 0
+  ambiguous: 3
+  top_terms:
+    artificial intelligence: 2
+    intelligence: 2
+    AI: 1
+    A.I.: 1
+    ML: 1
+    agent: 1

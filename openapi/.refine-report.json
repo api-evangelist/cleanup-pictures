@@ -1,7 +1,7 @@
 {
   "provider": "cleanup-pictures",
   "sources": [
-    "cleanup-pictures-cleanup-api-openapi.yml"
+    "_original/cleanup-pictures-openapi.yml"
   ],
   "outputs": [
     "cleanup-pictures-cleanup-api-openapi.yml"
@@ -9,6 +9,14 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "cleanup-pictures-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "cleanup-pictures-openapi.yml: tagged paths POST /cleanup/v1 -> Cleanup",
+    "cleanup-pictures-openapi.yml: declared missing tag: Cleanup",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "cleanup-pictures-cleanup-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
