@@ -46,7 +46,7 @@ tags_raw:
   - Inpainting
   - Visual
 created: '2026-05-08'
-modified: '2026-05-08'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: cleanup-pictures:cleanup
@@ -80,6 +80,8 @@ apis:
   - type: OpenAPI
     url: openapi/cleanup-pictures-cleanup-api-openapi.yml
 common:
+  - url: https://cleanup.pictures/blog/
+    type: Blog
   - type: AgenticAccess
     url: agentic-access/cleanup-pictures-agentic-access.yml
   - type: DomainSecurity
